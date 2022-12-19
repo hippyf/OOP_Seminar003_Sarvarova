@@ -1,11 +1,16 @@
 package main.java.ru.gb.oopseminar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import main.java.ru.gb.oopseminar.data.Task;
 
 public class UserService implements DataService {
-    private List<Task> planner;
+    private  List<Task> planner;
+
+    public UserService() {
+        this.planner = new ArrayList<>();
+    }
 
     @Override
     public void createPlanner(String text, String addDate, String addTime, String deadline, String autorFIO, Integer priority) {
@@ -14,15 +19,13 @@ public class UserService implements DataService {
             task.setId(id);
             id++;
         }
-        planner.add(new Task(id, text, addDate, addTime, deadline, autorFIO, priority));
+        this.planner.add(new Task(id, text, addDate, addTime, deadline, autorFIO, priority));  
         
     }
 
-    @Override
-    public List<Task> getAll() {
-        // TODO Auto-generated method stub
+    public List<Task> getPlanner(){
         return this.planner;
     }
-
     
+
 }

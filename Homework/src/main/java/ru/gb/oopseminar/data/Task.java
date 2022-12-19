@@ -1,5 +1,7 @@
 package main.java.ru.gb.oopseminar.data;
 
+import main.java.ru.gb.oopseminar.service.UserService;
+
 public class Task {
     
     public String text;
@@ -17,6 +19,7 @@ public class Task {
         this.addTime = addTime;
         this.deadline = deadline;
         this.autorFIO = autorFIO;
+        this.priority = priority;
     }
 
     public String getText() {
@@ -63,11 +66,12 @@ public class Task {
     
     @Override
     public String toString() {
-        String priorityString;
-        if(getPriority() <= 1) {priorityString = "Низкий";}
-        else if (getPriority() == 2) {priorityString = "Средний";}
-        else priorityString = "Высокий";
-        return String.format("Id: %d, Text: %s, addDate: %s, addTime: %s, deadLine: %s, autorFIO: %s, priotity: %s", id, text, addDate, addTime, deadline, autorFIO, priorityString);
+        String stringPriority;
+        if (priority <=1) {stringPriority = "Низкий";}
+        else if (priority == 2) {stringPriority = "Средний";}
+        else stringPriority = "Высокий";
+        
+        return String.format("Id: %d, Text: %s, addDate: %s, addTime: %s, deadLine: %s, autorFIO: %s, priotity: %s", id, text, addDate, addTime, deadline, autorFIO, stringPriority);
     }
 
 
